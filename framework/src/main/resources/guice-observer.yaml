@@ -1,0 +1,27 @@
+ioc:
+  bindings:
+    - bind: "com.dp.creational.model.Media"
+      to:
+        - "com.dp.framework.prototype.Album"
+        - "com.dp.framework.prototype.Picture"
+        - "com.dp.framework.prototype.Song"
+        - "com.dp.framework.prototype.Video"
+    - bind: "com.dp.framework.model.PlayerMediaServer"
+      to:
+        - "com.dp.framework.singleton.MediaServer"
+    - bind: "com.dp.framework.model.MediaPlayer"
+      to:
+        - "com.dp.framework.prototype.AlbumPlayer"
+        - "com.dp.framework.prototype.PictureViewer"
+        - "com.dp.framework.prototype.SongPlayer"
+        - "com.dp.framework.prototype.VideoPlayer"
+      decorate: true
+    - bind: "com.dp.framework.model.Decorator"
+      to:
+        - "com.dp.framework.decorator.MediaRatingDecorator"
+        - "com.dp.framework.decorator.PlaysDecorator"
+        - "com.dp.framework.decorator.ObserverDecorator"
+    - bind: "com.dp.behavioral.model.MediaPlayerObserver"
+      to:
+        - "com.dp.framework.observer.LoggingObserver"
+        - "com.dp.framework.observer.PresentationObserver"
